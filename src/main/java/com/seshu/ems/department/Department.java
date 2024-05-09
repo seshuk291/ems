@@ -1,5 +1,6 @@
 package com.seshu.ems.department;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.seshu.ems.employee.Employee;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -27,5 +28,6 @@ public class Department {
             cascade = CascadeType.PERSIST,
             fetch = FetchType.LAZY
     )
+    @JsonIgnoreProperties({"department", "address"})
     private List<Employee> employee = new ArrayList<>();
 }
