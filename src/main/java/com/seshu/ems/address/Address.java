@@ -1,5 +1,6 @@
 package com.seshu.ems.address;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.seshu.ems.employee.Employee;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -26,6 +27,7 @@ public class Address {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "employee_id")
+    @JsonIgnoreProperties({"address", "leave", "department"})
     private Employee employee;
 
 }
